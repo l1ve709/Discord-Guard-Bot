@@ -1,0 +1,17 @@
+{
+  "name": "discord-koruma-botu",
+  "version": "1.0.0",
+  "description": "Discord sunucusu için bir koruma botu. Kanal oluşturma, silme, rol değiştirme gibi aşırı aktiviteleri tespit eder ve kullanıcıları banlar.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node guard-bot.js"
+  },
+  "author": "l1ve709",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "base-64": "^1.0.0",
+    "discord.js": "^14.0.3",
+    "luxon": "^3.0.4"
+  }
+}
