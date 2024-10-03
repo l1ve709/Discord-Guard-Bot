@@ -2,7 +2,7 @@
 ##   --This code is Turkish--         ##
 ##    Support:                        ## 
 ##   Instagram :l1ve709               ##
-##   Discord : unk709/l1ve709.com     ##
+##   Discord : www.l1ve709.com        ##
 ##                                    ##
 ##                                    ##
 ##     --Made By Ediz SÖNMEZ--        ##  
