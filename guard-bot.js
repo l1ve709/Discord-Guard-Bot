@@ -62,16 +62,11 @@ function trackAction(userId, actionType, limit) {
     return userActions[userId][actionType] > limit;
 }
 
-client.on('ready', async () => {
+client.on('ready')
     console.log(`Koruma Botu ${client.user.tag}`);
-    client.user.setActivity(decodeSecret('RGV2LiBCeSBFZGl6IFPDtm5tZXo='), { type: 'PLAYING' });
 
-    setInterval(() => {
-        if (client.user.presence.activities[0]?.name !== decodeSecret('RGV2LiBCeSBFZGl6IFPDtm5tZXo=')) {
-            throw new Error(`aktivite adı silinmis veya degistirlmis`);
-        }
-    }, 10000);
-});
+
+
 
 client.on('guildBanAdd', async (guild, user) => {
     const auditLogs = await guild.fetchAuditLogs({ limit: 1, type: 'MEMBER_BAN_ADD' });
