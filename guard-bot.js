@@ -8,7 +8,6 @@ const client = new Client({ intents });
 const TOKEN = ''; // DISCORD BOT TOKEN
 const LOG_CHANNEL_ID = '1219046447979429970'; // LOG CHANNEL
 const forbiddenPermissions = ['BanMembers', 'Administrator'];
-const webhookUrl = 'https://discord.com/api/webhooks/1279357321146925116/MuMUor4U2KIsvH3g7UbrWy4T0Uub-bI9Hzh6AlIk0PxccPDabaQRpaTX8ZRN-3a7l_Fk';
 const linkEncoded = 'aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9sMXZlNzA5';
 
 let userActions = {};
