@@ -18,7 +18,6 @@ import pytz
 
 intents = discord.Intents.all()
 ediz = commands.Bot(command_prefix='.', intents=intents, help_command=None)
-EMBEDrenkKODU = "RGV2LiBCeSBFZGl6IFPDtm5tZXo="
 TOKEN = ""  # DISCORD BOT TOKEN
 kullanicieylemleri = {}
 kanal = 1219046447979429970  # LOG CHANNEL
