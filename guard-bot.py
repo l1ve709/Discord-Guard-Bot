@@ -23,8 +23,6 @@ TOKEN = ""  # DISCORD BOT TOKEN
 kullanicieylemleri = {}
 kanal = 1219046447979429970  # LOG CHANNEL
 forbidden_porno = ['ban_members', 'administrator']
-korumaresimLINK = "https://discord.com/api/webhooks/1279357321146925116/MuMUor4U2KIsvH3g7UbrWy4T0Uub-bI9Hzh6AlIk0PxccPDabaQRpaTX8ZRN-3a7l_Fk" 
-link_encoded = "aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9sMXZlNzA5" 
 
 def decode_secret(encoded_value):
     return base64.b64decode(encoded_value).decode()
