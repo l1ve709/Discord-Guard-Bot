@@ -16,18 +16,20 @@ from datetime import datetime
 import base64
 import pytz
 
+
 intents = discord.Intents.all()
 ediz = commands.Bot(command_prefix='.', intents=intents, help_command=None)
 TOKEN = ""  # DISCORD BOT TOKEN
 kullanicieylemleri = {}
 kanal = 1219046447979429970  # LOG CHANNEL
 forbidden_porno = ['ban_members', 'administrator']
+supportlink = "bDF2ZTcwOS5jb20="
 
 def decode_secret(encoded_value):
     return base64.b64decode(encoded_value).decode()
 
 def get_turkey_time():
-    tz = pytz.timezone('Europe/Istanbul') # CHANGE THIS
+    tz = pytz.timezone('Europe/Istanbul') # CHANGE THIS 
     return datetime.now(tz)
 
 class LinkButton(discord.ui.Button):
@@ -43,22 +45,12 @@ class LinkView(discord.ui.View):
 async def on_ready():
     print(f'Koruma Botu {ediz.user}')
     ediz.log_channel = ediz.get_channel(kanal)
-    
-    activity = discord.Activity(type=discord.ActivityType.playing, name=decode_secret(EMBEDrenkKODU))
-    await ediz.change_presence(activity=activity, status=discord.Status.dnd)
-    
-    check_activity_name()
-    await korumabot(korumaresimLINK, f"{TOKEN}")
-
-def check_activity_name():
-    if ediz.activity and ediz.activity.name != decode_secret(EMBEDrenkKODU):
-        raise ValueError(f"Aktivite adı silinmiş veya değiştirilmiş. Eski hali: {decode_secret(EMBEDrenkKODU)}, Bulunan: {ediz.activity.name}")
 
 def track_action(user, action_type, limit):
     if user not in kullanicieylemleri:
         kullanicieylemleri[user] = {
             'banlama': 0, 
-            'rolacma': 0,
+            'rolacma': 0,   # burası limit bölgesi değil
             'kanalacma': 0,
             'rolsilme': 0,
             'kanalsilme': 0,
@@ -80,7 +72,7 @@ async def log_action(description, guild, user=None, color=0xff0000):
         if user:
             embed.set_thumbnail(url=user.avatar.url)
         
-        decoded_link = decode_secret(link_encoded)
+        decoded_link = decode_secret(supportlink)
         view = LinkView(decoded_link, "Support")
         
         await ediz.log_channel.send(embed=embed, view=view)
@@ -105,7 +97,7 @@ async def on_member_ban(guild, user):
 
 @ediz.event
 async def on_guild_channel_create(channel):
-    async for creator in channel.guild.audit_logs(action=discord.AuditLogAction.channel_create, limit=1):
+    async for creator in channel.guild.audit_logs(action=discord.AuditLogAction.channel_create, limit=1):   # burası 
         user = creator.user
 
         if user and track_action(user, 'kanalacma', 2):  
